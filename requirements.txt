@@ -5,4 +5,3 @@ itsdangerous==2.1.0
 Jinja2==3.0.3
 MarkupSafe==2.1.0
 Werkzeug==2.0.3
-python==3.10.4
