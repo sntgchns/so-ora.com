@@ -1,5 +1,5 @@
 FROM python:3.11.0
-LABEL Santiago Soñora "https://soñora.site"
+LABEL Santiago Soñora "https://soñora.com"
 COPY . /app
 WORKDIR /app
 VOLUME ["/app"]
