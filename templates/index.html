@@ -9,22 +9,26 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">    
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
 </head>
-<body>
-    <h1>
-        <div>
-            <span class="material-icons-outlined orange">girl</span>
-            <span class="material-icons-outlined green">woman</span>
-            <span class="material-icons-outlined red">emoji_people</span>
-            <span class="material-icons-outlined orange">girl</span>
+<body onclick="tema()">
+    <div class="principal">
+        <div class="container">
+            <div class="family">
+                <span class="material-icons-outlined orange">girl</span>
+                <span class="material-icons-outlined green">woman</span>
+                <span class="material-icons-outlined red">emoji_people</span>
+                <span class="material-icons-outlined orange">girl</span>
+            </div>
+            <h1 class="text">Bienvenidos al sitio de la familia Soñora.</h1>
         </div>
-        <div class="text">            
-            Bienvenidos al sitio de la familia Soñora.
-        </div>
-    </h1>
-    <hr>
-    <footer>
-        <span><a href="mailto: santiagosonora@gmail.com">Contacto</a></span>
-    </footer>
-    
+        <footer>
+            <hr>
+            <span><a href="mailto: santiagosonora@gmail.com">Contacto</a></span>
+        </footer>
+    </div>
+    <script>
+        function tema() {
+            document.body.classList.toggle("oscuro");            
+        }
+    </script>
 </body>
 </html>
