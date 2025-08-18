@@ -1,12 +1,11 @@
 FROM python:3.13.6-alpine3.22
 LABEL name="Santiago Soñora" website="https://santiago.soñora.com"
-COPY . /app
 WORKDIR /app
+COPY requirements.txt /app/
 # VOLUME ["/app"]
-RUN python3 -m venv venv
-RUN . venv/bin/activate
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir  -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+COPY . /app/
 CMD ["gunicorn", "--bind", "0.0.0.0:11000", "--workers=5", "--threads=2", "app:app"]
 
 # docker login --> user: sntgchns password: O[sga]ANI77INA
