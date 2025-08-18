@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: soora-service
+  labels:
+    apply: "true"
+    app: soora
+spec:
+  type: ClusterIP
+  selector:
+    app: soora
+  ports:
+  - protocol: TCP
+    port: 11000
+    targetPort: 11000

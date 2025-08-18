@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: soora-deployment
+  labels:
+    apply: "true"
+    app: soora
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: soora
+  template:
+    metadata:
+      labels:
+        app: soora
+    spec:
+      containers:
+      - name: soora
+        image: sntgchns/soora:k8s
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: "0.25"
+          limits:
+            memory: 128Mi
+            cpu: "0.5"
+        ports:
+        - containerPort: 11000
