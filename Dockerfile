@@ -1,14 +1,13 @@
-# Usa una imagen base de Nginx ligera
-FROM nginx:alpine
-
-# Copia el archivo de configuración de Nginx
-COPY default.conf /etc/nginx/conf.d/default.conf
-
-# Copia los archivos de tu sitio web al directorio de Nginx
-COPY . /usr/share/nginx/html
-
-# Expón el puerto 11000
-EXPOSE 11000
+FROM python:3.13.6-alpine3.22
+LABEL name="Santiago Soñora" website="https://santiago.soñora.com"
+COPY . /app
+WORKDIR /app
+# VOLUME ["/app"]
+RUN python3 -m venv venv
+RUN . venv/bin/activate
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir  -r requirements.txt
+CMD ["gunicorn", "--bind", "0.0.0.0:11000", "--workers=5", "--threads=2", "app:app"]
 
 # docker login --> user: sntgchns password: O[sga]ANI77INA
 # docker build -t sntgchns/soora:k8s -f Dockerfile_k8s .
