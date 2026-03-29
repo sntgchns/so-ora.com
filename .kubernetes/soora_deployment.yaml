@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: sntgchns
   name: soora-deployment
   labels:
     apply: "true"
@@ -31,7 +32,7 @@ spec:
         - containerPort: 11000
         readinessProbe:
           httpGet:
-            path: /healthz
+            path: /
             port: 11000
           initialDelaySeconds: 5
           periodSeconds: 10
@@ -39,7 +40,7 @@ spec:
           failureThreshold: 3
         livenessProbe:
           httpGet:
-            path: /healthz
+            path: /
             port: 11000
           initialDelaySeconds: 30
           periodSeconds: 10
